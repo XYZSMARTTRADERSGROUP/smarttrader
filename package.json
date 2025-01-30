@@ -7,7 +7,8 @@
     "livereload": "grunt livereload",
     "serve": "grunt serve",
     "start": "grunt start",
-    "eslint": "eslint --fix \"src/**/*.jsx\" src/"
+    "eslint": "eslint --fix \"src/**/*.jsx\" src/",
+    "compile_dev": "cd A:\\Projects\\NODE\\smarttrader && node scripts/render.js -d"
   },
   "repository": {
     "type": "git",

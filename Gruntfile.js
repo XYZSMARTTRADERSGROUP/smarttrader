@@ -19,4 +19,26 @@ module.exports = function (grunt) {
             }
         },
     });
+
+    // Определяем задачу copy, чтобы избежать ошибки "No 'copy' targets found"
+    grunt.initConfig({
+        copy: {
+            main: {
+                expand: true,
+                cwd: 'src/',  // Исходная директория
+                src: '**',    // Какие файлы копировать
+                dest: 'dist/' // Директория назначения
+            }
+        },
+        shell: {
+            compile_dev: {
+                command: 'node scripts/render.js -d' // Исправлено
+            }
+        }
+    });
+
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-shell');
+
+    grunt.registerTask('default', ['copy', 'shell:compile_dev']);
 };
